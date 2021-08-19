@@ -56,6 +56,60 @@ def veiculos():
         db.session.commit()
 
         return veiculo_schema.jsonify(veiculos)
+
+
+@app.route('/veiculos/<id>/', methods=['GET'])
+def veiculos_details(id):
+    veiculo = Veiculos.query.get(id)
+    return veiculo_schema.jsonify(veiculo)
+
+@app.route('/veiculos/<id>/', methods=['PUT'])
+def update_veiculo(id):
+    veiculo = Veiculos.query.get(id)
+    
+    nome_veiculo = request.json['veiculo']
+    marca = request.json['marca']
+    ano = request.json['ano']
+    descricao = request.json['descricao']
+    vendido = request.json['vendido']
+
+    veiculo.veiculo = nome_veiculo
+    veiculo.marca = marca
+    veiculo.ano = ano
+    veiculo.descricao = descricao
+    veiculo.vendido = vendido
+
+    db.session.commit()
+
+    return veiculo_schema.jsonify(veiculo)
+
+@app.route('/veiculos/<id>/', methods=['PATCH'])
+def update_patch_veiculo(id):
+    veiculo = Veiculos.query.get(id)
+
+    if 'veiculo' in request.json:
+        veiculo.veiculo = request.json['veiculo']
+    elif 'marca' in request.json:
+        veiculo.marca = request.json['marca']
+    elif 'ano' in request.json:
+        veiculo.ano = request.jon['ano']
+    elif 'descricao' in request.json:
+        veiculo.descricao = request.json['descricao']
+    elif 'vendido' in request.json:
+        veiculo.vendido = request.json['vendido']
+
+    db.session.commit()
+
+    return veiculo_schema.jsonify(veiculo)
+
+
+@app.route('/veiculos/<id>/', methods=['DELETE'])
+def veiculo_delete(id):
+    veiculo = Veiculos.query.get(id)
+    db.session.delete(veiculo)
+    db.session.commit()
+
+    return veiculo_schema.jsonify(veiculo)
     
 
 
