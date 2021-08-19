@@ -63,6 +63,23 @@ def veiculos_details(id):
     veiculo = Veiculos.query.get(id)
     return veiculo_schema.jsonify(veiculo)
 
+@app.route('/veiculos/find', methods=['GET'])
+def find_veiculos():
+    marca = None
+    ano = None 
+
+    marca = request.args.get('marca')
+    ano = request.args.get('ano')
+
+    if marca != None:
+        all_veiculos = Veiculos.query.filter(Veiculos.marca == marca).all()
+    if ano != None:
+        all_veiculos = Veiculos.query.filter(Veiculos.ano == ano).all()
+    
+    veiculos = veiculos_schema.dump(all_veiculos)
+
+    return jsonify(veiculos)
+
 @app.route('/veiculos/<id>/', methods=['PUT'])
 def update_veiculo(id):
     veiculo = Veiculos.query.get(id)
