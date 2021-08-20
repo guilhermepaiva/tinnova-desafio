@@ -17,7 +17,7 @@ function Form(props){
 
     const updateVeiculo = () => {
         APIService.UpdateVeiculo(props.veiculo.id, {veiculo, marca, ano, descricao})
-        .then(resp => props.updateVeiculo(resp))
+        .then(resp => props.updatedVeiculo(resp))
         .catch(error => console.log(error))
     }
 
