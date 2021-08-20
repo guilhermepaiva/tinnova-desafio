@@ -20,16 +20,16 @@ class Veiculos(db.Model):
     marca = db.Column(db.String(100))
     ano = db.Column(db.Integer)
     descricao = db.Column(db.Text())
-    vendido = db.Column(db.Boolean, default=False, nullable=False)
+    vendido = db.Column(db.Boolean, default=False)
     created = db.Column(db.DateTime, default=datetime.datetime.now)
     updated = db.Column(db.DateTime)
 
-    def __init__(self, veiculo, marca, ano, descricao, vendido):
+    def __init__(self, veiculo, marca, ano, descricao):
         self.veiculo = veiculo
         self.marca = marca
         self.ano = ano
         self.descricao = descricao
-        self.vendido = vendido
+        
 
 class VeiculoSchema(ma.Schema):
     class Meta:
@@ -49,9 +49,8 @@ def veiculos():
         marca = request.json['marca']
         ano = request.json['ano']
         descricao = request.json['descricao']
-        vendido = request.json['vendido']
 
-        veiculos = Veiculos(veiculo, marca, ano, descricao, vendido)
+        veiculos = Veiculos(veiculo, marca, ano, descricao)
         db.session.add(veiculos)
         db.session.commit()
 
