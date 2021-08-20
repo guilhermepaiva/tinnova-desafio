@@ -1,9 +1,15 @@
 import React from 'react'
+import APIService from './APIService'
 
 function VeiculoList(props) {
 
     const editarVeiculo = (veiculo) => {
         props.editarVeiculo(veiculo)
+    }
+
+    const excluirVeiculo = (veiculo) => {
+        APIService.ExcluirVeiculo(veiculo.id)
+        .then(() => props.excluirVeiculo(veiculo))
     }
 
     return (
@@ -23,7 +29,9 @@ function VeiculoList(props) {
                             </button>
                         </div>
                         <div className="col">
-                            <button className="btn btn-danger">Excluir Veículo</button>
+                            <button className="btn btn-danger"
+                                onClick = {() => excluirVeiculo(veiculo)}
+                            >Excluir Veículo</button>
                         </div>
                     </div>
 

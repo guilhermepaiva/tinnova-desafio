@@ -46,6 +46,17 @@ function App() {
     setVeiculos(novos_veiculos)
   }
 
+  const excluirVeiculo = (veiculo) => {
+    const novos_veiculos = veiculos.filter(meu_veiculo => {
+      if (meu_veiculo.id === veiculo.id){
+        return false;
+      } else {
+        return true;
+      }
+    })
+    setVeiculos(novos_veiculos)
+  }
+
 
   return (
     <div className="App">
@@ -72,7 +83,7 @@ function App() {
           <hr />
           <hr />
 
-          <VeiculoList veiculos = {veiculos} editarVeiculo = {editarVeiculo} />
+          <VeiculoList veiculos = {veiculos} editarVeiculo = {editarVeiculo} excluirVeiculo = {excluirVeiculo} />
 
           
           

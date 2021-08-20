@@ -21,4 +21,13 @@ export default class APIService {
           })
           .then(resp => resp.json())
     }
+
+    static ExcluirVeiculo(id){
+      return fetch(`http://localhost:5000/veiculos/${id}/`, {
+          'method': 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+  }
 }
