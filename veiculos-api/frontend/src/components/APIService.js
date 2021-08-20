@@ -12,7 +12,7 @@ export default class APIService {
     }
 
     static InserirVeiculo(body){
-        return fetch(`http://localhost:5000/veiculo`, {
+        return fetch(`http://localhost:5000/veiculos`, {
             'method': 'POST',
             headers: {
               'Content-Type': 'application/json'

@@ -35,21 +35,21 @@ function Form(props){
                 <label htmlFor="veiculo" className="form-label">Veículo</label>
                 <input type="text" className="form-control"
                         value={veiculo}
-                        placeholder="Coloce o veículo"
+                        placeholder="Coloque o veículo"
                         onChange={(e) => setVeiculo(e.target.value)}
                 />
 
                 <label htmlFor="marca" className="form-label">Marca</label>
                 <input type="text" className="form-control"
                         value={marca}
-                        placeholder="Coloce a marca do vículo"
+                        placeholder="Coloque a marca do vículo"
                         onChange={(e) => setMarca(e.target.value)}
                 />
 
                 <label htmlFor="ano" className="form-label">Ano</label>
                 <input type="text" className="form-control"
                         value={ano}
-                        placeholder="Coloce o ano do veículo"
+                        placeholder="Coloque o ano do veículo"
                         onChange={(e) => setAno(e.target.value)}
                 />
 
@@ -71,7 +71,7 @@ function Form(props){
 
                     <button className="btn btn-success"
                             onClick={inserirVeiculo}
-                        >Inserir Veículo
+                        >Salvar
                         </button>    
                 }
                 </div>

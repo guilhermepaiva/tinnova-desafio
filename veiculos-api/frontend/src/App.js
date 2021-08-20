@@ -41,6 +41,7 @@ function App() {
   }
 
   const veiculoInserido = (veiculo) => {
+    console.log(veiculo)
     const novos_veiculos = [...veiculos, veiculo]
     setVeiculos(novos_veiculos)
   }
