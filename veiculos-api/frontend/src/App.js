@@ -2,6 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import VeiculoList from './components/VeiculoList';
 import Form from './components/Form';
+import VeiculosNaoVendidos from './components/VeiculosNaoVendidos';
+import VeiculosPorFabricante from './components/VeiculosPorFabricante';
+import VeiculosUltimaSemana from './components/VeiculosUltimaSemana';
 
 function App() {
 
@@ -90,17 +93,20 @@ function App() {
         </div>
         <div class="row">
         <h2>Dashboard</h2>
-          <div class="col-sm-4">
-          
+          <div class="col">
+            <VeiculosNaoVendidos veiculos={veiculos} />
           </div>
-          <div class="col-sm-4">
-
+          <div class="col">
+            <h5>Veículos por década:</h5>
+            
           </div>
-          <div class="col-sm-4">
-
+          <div class="col">
+            <h5>Veículos por fabricante:</h5>
+            <VeiculosPorFabricante veiculos={veiculos} />
           </div>
-          <div class="col-sm-4"></div>
-          
+          <div class="col"></div>
+            <h5>Veículos registrados na última semana:</h5>
+            <VeiculosUltimaSemana veiculos={veiculos} />
           </div>
         </div>
     </div>
