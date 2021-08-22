@@ -87,13 +87,13 @@ def update_veiculo(id):
     marca = request.json['marca']
     ano = request.json['ano']
     descricao = request.json['descricao']
-    vendido = request.json['vendido']
+    #vendido = request.json['vendido']
 
     veiculo.veiculo = nome_veiculo
     veiculo.marca = marca
     veiculo.ano = ano
     veiculo.descricao = descricao
-    veiculo.vendido = vendido
+    #veiculo.vendido = vendido
 
     db.session.commit()
 

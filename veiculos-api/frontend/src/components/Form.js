@@ -39,13 +39,22 @@ function Form(props){
                         onChange={(e) => setVeiculo(e.target.value)}
                 />
 
-                
-                <label htmlFor="marca" className="form-label">Marca</label>
-                <input type="text" className="form-control"
-                        value={marca}
-                        placeholder="Coloque a marca do vículo"
-                        onChange={(e) => setMarca(e.target.value)}
-                />
+                <label htmlFor="marca" className="form-label">Marca</label> 
+                <select value={marca} onChange={(e) => setMarca(e.target.value)}
+                className="form-control">
+                    <option value="Ford">Ford</option>
+                    <option value="FIAT">FIAT</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Citroën">Citroën</option>
+                    <option value="Audi">Audi</option>
+                </select>
 
                 <label htmlFor="ano" className="form-label">Ano</label>
                 <input type="text" className="form-control"
